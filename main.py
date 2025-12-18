@@ -21,6 +21,30 @@ isoko = {
     'child': 'omo'
 }
 
+igbo = {
+    'hello': 'ndeewo',
+    'food': 'nri',
+    'water': 'mmiri',
+    'thank you': 'daalụ',
+    'school': 'ụlọ akwụkwọ',
+    'book': 'akwụkwọ',
+    'love': 'ịhụnanya',
+    'friend': 'enyi',
+    'family': 'ezinụlọ',
+    'money': 'ego',
+    'car': 'ụgbọala',
+    'road': 'ụzọ',
+    'city': 'obodo',
+    'work': 'ọrụ',
+    'time': 'oge',
+    'day': 'ụbọchị',
+    'night': 'abalị',
+    'sun': 'anyanwụ',
+    'moon': 'ọnwa',
+    'child': 'nwa'
+}
+
+
 choice = input('choose a language: ').lower()
 
 if choice == 'isoko':
@@ -29,6 +53,13 @@ if choice == 'isoko':
      print(isoko[word])
     else:
         print('the word is not in the dictionary try another')
+elif choice == 'igbo':
+    word = input('Enter and english word: ')
+    if word in igbo:
+        print(igbo[word])
+    else:
+        print('the word is not in the dictionary try another')
 
 else:
     print('invalid options')
+
