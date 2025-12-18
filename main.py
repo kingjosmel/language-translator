@@ -44,6 +44,30 @@ igbo = {
     'child': 'nwa'
 }
 
+igala = {
+    'hello': 'aloo',
+    'food': 'onyi',
+    'water': 'omi',
+    'thank you': 'oche',
+    'school': 'sukulu',
+    'book': 'buku',
+    'love': 'ohuma',
+    'friend': 'omako',
+    'family': 'ogijo',
+    'money': 'owo',
+    'car': 'moto',
+    'road': 'ogba',
+    'city': 'otu',
+    'work': 'ogba',
+    'time': 'ojo',
+    'day': 'ojo',
+    'night': 'odu',
+    'sun': 'ene',
+    'moon': 'ole',
+    'child': 'oma'
+}
+
+
 
 choice = input('choose a language: ').lower()
 
@@ -57,6 +81,12 @@ elif choice == 'igbo':
     word = input('Enter and english word: ')
     if word in igbo:
         print(igbo[word])
+    else:
+        print('the word is not in the dictionary try another')
+elif choice == 'igala':
+    word = input('Enter and english word: ')
+    if word in igala:
+        print(igala[word])
     else:
         print('the word is not in the dictionary try another')
 
