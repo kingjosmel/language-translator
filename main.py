@@ -67,6 +67,30 @@ igala = {
     'child': 'oma'
 }
 
+hausa = {
+    'hello': 'sannu',
+    'food': 'abinci',
+    'water': 'ruwa',
+    'thank you': 'na gode',
+    'school': 'makaranta',
+    'book': 'littafi',
+    'love': 'so',
+    'friend': 'aboki',
+    'family': 'iyali',
+    'money': 'kudi',
+    'car': 'mota',
+    'road': 'hanya',
+    'city': 'birni',
+    'work': 'aiki',
+    'time': 'lokaci',
+    'day': 'rana',
+    'night': 'dare',
+    'sun': 'rana',
+    'moon': 'wata',
+    'child': 'yaro'
+}
+
+
 
 
 choice = input('choose a language: ').lower()
@@ -87,6 +111,12 @@ elif choice == 'igala':
     word = input('Enter and english word: ')
     if word in igala:
         print(igala[word])
+    else:
+        print('the word is not in the dictionary try another')
+elif choice == 'hausa':
+    word = input('Enter and english word: ')
+    if word in hausa:
+        print(hausa[word])
     else:
         print('the word is not in the dictionary try another')
 
