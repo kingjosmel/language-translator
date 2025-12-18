@@ -91,6 +91,30 @@ hausa = {
 }
 
 
+idoma = {
+    'hello': 'aloo',
+    'food': 'onyi',
+    'water': 'omi',
+    'thank you': 'oche',
+    'school': 'sukulu',
+    'book': 'buku',
+    'love': 'ohuma',
+    'friend': 'omako',
+    'family': 'ogijo',
+    'money': 'owo',
+    'car': 'moto',
+    'road': 'ogba',
+    'city': 'otu',
+    'work': 'ogba',
+    'time': 'ojo',
+    'day': 'ojo',
+    'night': 'odu',
+    'sun': 'ene',
+    'moon': 'ole',
+    'child': 'oma'
+}
+
+
 
 
 choice = input('choose a language: ').lower()
@@ -117,6 +141,12 @@ elif choice == 'hausa':
     word = input('Enter and english word: ')
     if word in hausa:
         print(hausa[word])
+    else:
+        print('the word is not in the dictionary try another')
+elif choice == 'idoma':
+    word = input('Enter and english word: ')
+    if word in idoma:
+        print(idoma[word])
     else:
         print('the word is not in the dictionary try another')
 
