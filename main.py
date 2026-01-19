@@ -1,3 +1,6 @@
+import streamlit as st
+
+# Language dictionaries
 isoko = {
     'hello': 'miguo',
     'food': 'emi',
@@ -90,7 +93,6 @@ hausa = {
     'child': 'yaro'
 }
 
-
 idoma = {
     'hello': 'aloo',
     'food': 'onyi',
@@ -114,42 +116,68 @@ idoma = {
     'child': 'oma'
 }
 
+# Dictionary to map language names to their dictionaries
+languages = {
+    'Isoko': isoko,
+    'Igbo': igbo,
+    'Igala': igala,
+    'Hausa': hausa,
+    'Idoma': idoma
+}
 
+# Streamlit page configuration
+st.set_page_config(page_title="Language Translator", layout="centered")
 
+# Title and description
+st.title("🌍 Language Translator")
+st.write("Translate English words to African languages")
 
-choice = input('choose a language: ').lower()
+# Select language
+selected_language = st.selectbox(
+    "Choose a language:",
+    options=list(languages.keys()),
+    key="language_selector"
+)
 
-if choice == 'isoko':
-    word = input('Enter and englsh wors: ')
-    if word in isoko:
-     print(isoko[word])
-    else:
-        print('the word is not in the dictionary try another')
-elif choice == 'igbo':
-    word = input('Enter and english word: ')
-    if word in igbo:
-        print(igbo[word])
-    else:
-        print('the word is not in the dictionary try another')
-elif choice == 'igala':
-    word = input('Enter and english word: ')
-    if word in igala:
-        print(igala[word])
-    else:
-        print('the word is not in the dictionary try another')
-elif choice == 'hausa':
-    word = input('Enter and english word: ')
-    if word in hausa:
-        print(hausa[word])
-    else:
-        print('the word is not in the dictionary try another')
-elif choice == 'idoma':
-    word = input('Enter and english word: ')
-    if word in idoma:
-        print(idoma[word])
-    else:
-        print('the word is not in the dictionary try another')
+# Get available words for the selected language
+current_dictionary = languages[selected_language]
+available_words = list(current_dictionary.keys())
 
-else:
-    print('invalid options')
+# Display available words
+st.subheader(f"Available words in {selected_language}:")
+st.write(", ".join(available_words))
+
+# Select word with buttons
+st.subheader("Select a word to translate:")
+
+# Create columns for word buttons
+cols = st.columns(4)
+col_index = 0
+
+translation_result = None
+
+for word in available_words:
+    with cols[col_index % 4]:
+        if st.button(word, key=word, use_container_width=True):
+            translation_result = current_dictionary[word]
+
+    col_index += 1
+
+# Display translation result
+if translation_result:
+    st.success(f"**Translation:** {translation_result}")
+
+# Alternative: Text input option
+st.subheader("Or type a word:")
+user_word = st.text_input(
+    "Enter an English word:",
+    placeholder="e.g., hello, food, water thank you"
+)
+
+if user_word:
+    user_word_lower = user_word.lower()
+    if user_word_lower in current_dictionary:
+        st.info(f"**{user_word}** in {selected_language} is: **{current_dictionary[user_word_lower]}**")
+    else:
+        st.warning(f"'{user_word}' is not in the {selected_language} dictionary. Try another word.")
 
